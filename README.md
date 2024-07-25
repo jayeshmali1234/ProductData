@@ -11,3 +11,12 @@
 **Edit or Delete functionality also to be provide**
 
 ![Screenshot (126)](https://github.com/user-attachments/assets/fead7d6c-7923-468c-87a4-0094c0d205f5)
+
+
+**This Our Sql OutPut**
+
+![Screenshot (132)](https://github.com/user-attachments/assets/20e2c846-324d-490e-8aa2-fc003d1b9148)
+
+**this is a SQL Tabel**
+
+![Uploading Screenshot (131).png…]()
