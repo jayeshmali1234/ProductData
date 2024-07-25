@@ -1,0 +1,62 @@
+﻿@model ProductData.DBconnect.product
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript">
+    function calculation() {
+        var quntity = document.getElementById('qty').value;
+        var Rate = document.getElementById('rate').value;
+        alert('Rate');
+        document.getElementById("total").value = parseFloat(quntity) * parseFloat(Rate);
+    }
+
+</script>
+@using (Html.BeginForm("EditData", "Employ", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-3">
+            @Html.HiddenFor(m => m.id, new { @class = "form-control" })
+            <label>Name</label>
+            @Html.TextBoxFor(m => m.name, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-3">
+            <label>City</label>
+            @Html.TextBoxFor(m => m.city, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-3">
+            <label>Quntity</label>
+            @Html.TextBoxFor(m => m.Qty, new { @class = "form-control", id = "qty", onkeyup = "calculation();" })
+        </div>
+
+        <div class="col-md-3">
+            <label>Rate</label>
+            @Html.TextBoxFor(m => m.rate, new { @class = "form-control", id = "rate", onkeyup = "calculation();" })
+        </div>
+
+        <div class="col-md-3">
+            <label>Total</label>
+            @Html.TextBoxFor(m => m.Total, new { @class = "form-control", id = "total" })
+        </div>
+
+        <div class="col-md-3">
+            <label>ImageChoose</label>
+            <br />
+           @* <img src="~/Content/Images/@Model.picname" alt="@Model.name" width="100" height="100" />*@
+            <input type="file" name="postfile" class="form-control"/>
+        </div>
+    </div>
+    <br />
+
+    <div>
+        <button type="submit" class="btn btn-warning">submit</button>
+    </div>
+}
+@Html.Action("GetAllRecord")

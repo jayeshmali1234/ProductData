@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProductData.DBconnect.product>
+
+<table class="table" style="background-color:aqua">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.picname)
+        </th>
+        <th>Actions</th>
+    </tr>
+    @if(Model.Count()==0){
+        <tr>
+            <td colspan="8" style="color:red">No Product Match Found</td>
+        </tr>
+    }
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Qty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            <img src="~/Content/Images/@item.picname" alt="@item.name" width="100" height="100" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id },new {@class="btn btn-danger"}) |
+            @Html.ActionLink("Details", "Details", new { Jay_id=item.id }, new {@class="btn btn-warning"}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id },new {@class="btn btn-primary"})
+        </td>
+    </tr>
+}
+
+</table>
