@@ -7,7 +7,12 @@
 <h2>Index</h2>
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<style>
+  label{
+      color:orangered;
+  }
 
+</style>
 <script type="text/javascript">
     function calculation() {
         var quntity = document.getElementById('qty').value;
@@ -23,37 +28,41 @@
         <div class="col-md-3">
             <label>ProductName</label>
             @Html.TextBoxFor(m => m.name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=>m.name, "", new {@class="text-danger"})
         </div>
 
         <div class="col-md-3">
             <label>City</label>
             @Html.TextBoxFor(m => m.city, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.city, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-md-3">
             <label>Quntity</label>
             @Html.TextBoxFor(m => m.Qty, new { @class = "form-control", id = "qty", onkeyup = "calculation();" })
+            @Html.ValidationMessageFor(m => m.Qty, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-md-3">
             <label>Rate</label>
             @Html.TextBoxFor(m => m.rate, new { @class = "form-control", id = "rate", onkeyup = "calculation();" })
+            @Html.ValidationMessageFor(m => m.rate, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-md-3">
             <label>Total</label>
             @Html.TextBoxFor(m => m.Total, new { @class = "form-control", id = "total" })
         </div>
-
+        
         <div class="col-md-3">
             <label>ImageChoose</label>  
             <input type="file" , name="postfile" class="form-control" />
         </div>
     </div>
 <br/>
-    <br/>
     <div>
         <button type="submit" class="btn btn-warning">submit</button>
-    </div>
+        <button type="reset" class="btn btn-dark">Reset</button>
+    </div><br />
 }
 @Html.Action("GetAllRecord")

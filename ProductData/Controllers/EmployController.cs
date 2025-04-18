@@ -31,7 +31,7 @@ namespace ProductData.Controllers
                     postfile.SaveAs(savepath + Filename);
                     model.picname = Filename;
                     db.products.Add(model);
-                    db.SaveChanges();
+                    db.SaveChanges(); 
                 }
                 else
                 {
